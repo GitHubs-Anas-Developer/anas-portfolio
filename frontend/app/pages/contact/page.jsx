@@ -8,6 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import toast, { Toaster } from "react-hot-toast";
+import Link from "next/link";
 
 function Contact() {
     const [messageForm, setmessageForm] = useState({
@@ -73,7 +74,9 @@ function Contact() {
                                     onChange={(e) =>
                                         setmessageForm({ ...messageForm, name: e.target.value })
                                     }
+                                    required
                                 />
+
                             </div>
 
                             <div>
@@ -87,6 +90,7 @@ function Contact() {
                                     onChange={(e) =>
                                         setmessageForm({ ...messageForm, email: e.target.value })
                                     }
+                                    required
                                 />
                             </div>
 
@@ -104,6 +108,7 @@ function Contact() {
                                             messages: e.target.value
                                         })
                                     }
+                                    required
                                 />
                             </div>
 
@@ -140,16 +145,15 @@ function Contact() {
                         <div className="mt-3  ">
                             <h3 className="text-lg text-white font-bold">Follow Me </h3>
                             <div className="flex gap-3">
-                                <div className="border p-3.5 rounded-full">
-
+                                <Link href={"https://github.com/GitHubs-Anas-Developer"} className="border p-3.5 rounded-full">
                                     <FaGithub className="text-3xl" />
-                                </div>
-                                <div className="border p-3.5 rounded-full">
+                                </Link>
+                                <Link href={"https://www.linkedin.com/in/anas-cv-842528369"} className="border p-3.5 rounded-full">
                                     <FaLinkedin className="text-3xl" />
-                                </div>
-                                <div className="border p-3.5 rounded-full">
+                                </Link>
+                                <Link className="border p-3.5 rounded-full">
                                     <FaSquareInstagram className="text-3xl" />
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

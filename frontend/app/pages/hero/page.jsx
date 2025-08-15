@@ -8,6 +8,13 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
 function Hero() {
+
+  const handleScroll = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="flex min-h-screen bg-gradient-to-r from-slate-900 to-green-300 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 max-w-6xl mx-auto">
@@ -37,10 +44,11 @@ function Hero() {
 
           {/* Buttons */}
           <div className="flex gap-4 flex-wrap">
-            <button className="bg-green-400 px-6 py-3 rounded-3xl text-white font-bold hover:bg-green-400 transition">
+            <button className="bg-green-400 px-6 py-3 rounded-3xl text-white font-bold hover:bg-green-400 transition" onClick={() => handleScroll("contacts")}
+            >
               Get In Touch
             </button>
-            <button className="border-2 border-gray-400 rounded-3xl px-6 py-3 text-white font-bold hover:bg-slate-900 transition">
+            <button className="border-2 border-gray-400 rounded-3xl px-6 py-3 text-white font-bold hover:bg-slate-900 transition" onClick={() => handleScroll("projects")}>
               View My Work
             </button>
           </div>
