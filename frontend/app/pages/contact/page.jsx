@@ -151,7 +151,7 @@ function Contact() {
                                 <Link href={"https://www.linkedin.com/in/anas-cv-842528369"} className="border p-3.5 rounded-full">
                                     <FaLinkedin className="text-3xl" />
                                 </Link>
-                                <Link className="border p-3.5 rounded-full">
+                                <Link href={""} className="border p-3.5 rounded-full">
                                     <FaSquareInstagram className="text-3xl" />
                                 </Link>
                             </div>
