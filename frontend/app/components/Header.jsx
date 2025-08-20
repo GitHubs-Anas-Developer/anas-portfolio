@@ -103,7 +103,7 @@ function Header() {
             <nav className="fixed inset-0 bg-slate-900 bg-opacity-95 flex flex-col items-center justify-center z-50 transition-all duration-300">
               {/* Close Button */}
               <button
-                className="absolute top-6 right-6 font-extrabold text-4xl text-red-500 cursor-pointer"
+                className="absolute top-6 right-6 font-extrabold text-4xl text-green-400 cursor-pointer"
                 onClick={() => setToggle(false)}
                 aria-label="Close menu"
               >

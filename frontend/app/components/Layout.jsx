@@ -10,13 +10,13 @@ import Header from './Header'
 function Layout() {
     return (
         <>
-         <Header />
+            <Header />
             <section id="hero"><Hero /></section>
-            <section id="about"><About /></section>
-            <section id="stack"><Stack /></section>
-            <section id="skills"><Skills /></section>
-            <section id="projects"><Projects /></section>
-            <section id="contacts"><Contact /></section>
+            <section className='bg-slate-900' id="about"><About /></section>
+            <section className='bg-slate-900' id="stack"><Stack /></section>
+            <section className='bg-slate-900' id="skills"><Skills /></section>
+            <section className='bg-slate-900' id="projects"><Projects /></section>
+            <section className='bg-slate-900' id="contacts"><Contact /></section>
         </>
     )
 }

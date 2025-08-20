@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         <Layout>
-          <main>{children}</main>
+          <main className="bg-slate-900">{children}</main>
         </Layout>
         <Footer />
       </body>
