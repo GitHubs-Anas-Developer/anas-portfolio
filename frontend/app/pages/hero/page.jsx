@@ -1,23 +1,49 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaAward, FaDiagramProject } from "react-icons/fa6";
-import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-import profileImg from "../../../public/Screenshot_2025-08-01-01-09-06-38_99c04817c0de5652397fc8b56c3b3817.jpg";
 import gsap from "gsap";
+
+const codeLines = [
+
+  ' const developer = {',
+  '  name: "Anas",',
+  '  role: "Senior Full Stack MERN Developer",',
+  '  skills: {',
+  '    frontend: [',
+  '      "React", "Next.js", "Redux", "TypeScript", "TailwindCSS", "Material-UI",',
+  '      "Bootstrap", "SASS", "Responsive Design", "Animations", "React Query",',
+  '    ],',
+  '    backend: [',
+  '      "Node.js", "Express.js", "REST APIs", "GraphQL", "WebSocket", "JWT Auth",',
+  '      "Payment Gateway Integration',
+  '    ],',
+  '    database: ["MongoDB", "Firebase", "MySQL", "PostgreSQL", "Redis"],',
+  '    devops: ["Docker", "Kubernetes", "CI/CD", "Vercel", "Netlify", "AWS", "GCP"],',
+  '    testing: ["Jest", "React Testing Library", "Cypress", "Mocha", "Chai"],',
+  '    tools: ["Git", "GitHub", "VS Code", "Postman", "Figma", "Swagger"],',
+  '    others: [',
+  '      "WebRTC", "Real-time Chat Apps", "E-commerce Admin Panels",',
+  '      "Expense Tracker Apps", "Analytics Dashboards", "SEO Optimization",',
+  '      "Performance Tuning", "Scalable Architecture", "Microservices",',
+  '    ],',
+  '  },',
+  '};',
+  '// sad().stop(); beAwesome();',
+];
+
+
 
 function Hero() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
-  const handleScroll = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  // Typing animation state
+  const [typedLines, setTypedLines] = useState([]);
 
   useEffect(() => {
-    // Left side entrance animation
+    // Left text entrance animation
     gsap.from(leftRef.current, {
       x: -50,
       opacity: 0,
@@ -26,35 +52,56 @@ function Hero() {
       stagger: 0.2,
     });
 
-    // Right image entrance animation
+    // Right coding block animation
     gsap.from(rightRef.current, {
-      scale: 0.8,
+      scale: 0.9,
       opacity: 0,
       duration: 1,
       delay: 0.3,
       ease: "power3.out",
     });
 
-    // Infinite loop border + shape animation
-    gsap.to(rightRef.current, {
-      duration: 3,
-      borderWidth: "7px",
-      scale: 1.05,
-      borderRadius: "50% 10% 10% 10% / 10% 10% 10% 50%",
-      yoyo: true,
-      repeat: -1,
-      ease: "power1.inOut",
-    });
+    // Typing effect for code block
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    const typeInterval = setInterval(() => {
+      if (lineIndex >= codeLines.length) {
+        clearInterval(typeInterval);
+        return;
+      }
+
+      const currentLine = codeLines[lineIndex];
+      setTypedLines((prev) => {
+        const updated = [...prev];
+        if (!updated[lineIndex]) updated[lineIndex] = "";
+        updated[lineIndex] += currentLine[charIndex];
+        return updated;
+      });
+
+      charIndex++;
+      if (charIndex === currentLine.length) {
+        charIndex = 0;
+        lineIndex++;
+      }
+    }, 50);
+
+    return () => clearInterval(typeInterval);
   }, []);
 
+  const handleScroll = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex min-h-screen bg-gradient-to-r from-slate-900 to-green-300">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 max-w-6xl mx-auto">
+    <div className="flex justify-center items-center  min-h-screen bg-gradient-to-r from-slate-900 to-green-300 py-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 max-w-6xl mx-auto w-full">
 
         {/* LEFT SIDE */}
         <div
           ref={leftRef}
-          className="flex flex-col justify-center items-start space-y-6 mt-16"
+          className="flex flex-col justify-center items-start space-y-6 mt-12"
         >
           <h3 className="text-white text-xl font-semibold">WELCOME TO MY WORLD</h3>
 
@@ -70,10 +117,10 @@ function Hero() {
             wrapper="span"
             cursor={true}
             repeat={Infinity}
-            className="text-green-400 text-4xl md:text-[5vh] font-bold inline-block"
+            className="text-green-400 text-3xl sm:text-4xl md:text-[5vh] font-bold inline-block"
           />
 
-          <p className="text-gray-200 max-w-md">
+          <p className="text-gray-200 max-w-md leading-relaxed">
             I’m passionate about building modern web applications that are
             user-friendly, responsive, and impactful.
           </p>
@@ -95,14 +142,14 @@ function Hero() {
           </div>
 
           {/* Experience / Projects */}
-          <div className="grid grid-cols-2 gap-5 mt-4">
+          <div className="grid grid-cols-2 gap-5 mt-6">
             <div className="flex items-center space-x-3">
               <div className="text-green-400 p-3 border-2 border-gray-400 text-3xl rounded-full">
                 <FaAward />
               </div>
               <div>
                 <p className="font-extrabold text-lg text-white">1+ Years</p>
-                <p className="font-extrabold text-lg text-gray-400">Experience</p>
+                <p className="font-semibold text-gray-400">Experience</p>
               </div>
             </div>
 
@@ -112,33 +159,57 @@ function Hero() {
               </div>
               <div>
                 <p className="font-extrabold text-lg text-white">10+ Projects</p>
-                <p className="font-extrabold text-lg text-gray-400">Completed</p>
+                <p className="font-semibold text-gray-400">Completed</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="flex items-center justify-center">
-          <div
-            ref={rightRef}
-            className="relative w-full max-w-sm md:max-w-md aspect-[5/5] 
-                      rounded-[60%_40%_40%_60%/60%_40%_60%_40%] 
-                      overflow-hidden border-8 border-green-300 
-                      shadow-2xl"
-          >
-            <Image
-              src={profileImg}
-              alt="Profile"
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 768px) 90vw, 400px"
-            />
+        {/* RIGHT SIDE - VS Code Style Coding Block */}
+        <div
+          ref={rightRef}
+          className="bg-slate-900 text-green-400 font-mono rounded-xl shadow-2xl border border-emerald-400 
+                     w-full max-w-lg h-fit overflow-hidden mx-auto md:mt-0 mt-20"
+        >
+          {/* Fake VS Code Title Bar */}
+          <div className="flex items-center gap-2 bg-slate-800 px-4 py-2">
+            <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+            <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+            <p className="ml-3 text-gray-400 text-xs sm:text-sm">index.js</p>
+          </div>
+
+          {/* Code Content with line numbers */}
+          <div className="p-4 text-xs sm:text-sm md:text-base">
+            {typedLines.map((line, index) => (
+              <div key={index} className="flex">
+                <span className="text-gray-500 select-none mr-2 w-5 text-right">
+                  {index + 1}
+                </span>
+                <span>{line}</span>
+              </div>
+            ))}
+            <span className="blinking-cursor">|</span>
           </div>
         </div>
-
       </div>
+
+      {/* Cursor Animation */}
+      <style>
+        {`
+          .blinking-cursor {
+            display: inline-block;
+            width: 1px;
+            background-color: #22c55e;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+          }
+          @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+          }
+        `}
+      </style>
     </div>
   );
 }

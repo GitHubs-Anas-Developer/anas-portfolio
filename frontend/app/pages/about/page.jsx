@@ -53,7 +53,7 @@ function About() {
 
   return (
     <motion.div
-      className="flex flex-col md:flex-row items-center justify-evenly min-h-screen bg-slate-900 px-6 py-10"
+      className="flex flex-col md:flex-row items-center justify-evenly min-h-screen bg-slate-900 px-6 py-20"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -129,7 +129,7 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <button>Download CV</button>
+          <a href={"/Anas_Resume.pdf"}  >Download CV</a>
           <FaDownload className="ml-2.5" />
         </motion.div>
       </motion.div>

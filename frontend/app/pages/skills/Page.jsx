@@ -54,7 +54,7 @@ function Skills() {
   };
 
   return (
-    <div className="bg-slate-900 py-12">
+    <div className="bg-slate-900 py-20">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Title & Intro */}
         <div className="mb-14 text-center">

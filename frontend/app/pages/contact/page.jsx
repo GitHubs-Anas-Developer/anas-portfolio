@@ -45,10 +45,10 @@ function Contact() {
 
 
     return (
-        <div className="bg-slate-900 py-10">
+        <div className="bg-slate-900 py-20">
             <div className="text-center py-6">
                 <span className="text-white font-bold text-3xl">Contact</span>
-                <span className="text-green-300 font-bold text-3xl ml-2">Me</span>
+                <span className="text-green-400 font-bold text-3xl ml-2">Me</span>
                 <p className="font-bold text-gray-400 text-lg leading-relaxed">
                     Have a project in mind or want to discuss potential opportunities? I'd
                     love to hear from you.
@@ -127,17 +127,17 @@ function Contact() {
                         <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
 
                         <div className="flex items-center gap-2 mb-2 border border-gray-500 rounded-lg p-3">
-                            <IoLocation className="text-green-300 text-2xl" />
+                            <IoLocation className="text-green-400 text-2xl" />
                             <span>Ajman, UAE</span>
                         </div>
 
                         <div className="flex items-center gap-2 mb-2 border border-gray-500 rounded-lg p-3">
-                            <MdEmail className="text-green-300 text-2xl" />
+                            <MdEmail className="text-green-400 text-2xl" />
                             <span>anascoding@gmail.com</span>
                         </div>
 
                         <div className="flex items-center gap-2 border border-gray-500 rounded-lg p-3">
-                            <FaPhone className="text-green-300 text-2xl  " />
+                            <FaPhone className="text-green-400 text-2xl  " />
                             <span>+971 55 123 4567</span>
                         </div>
 

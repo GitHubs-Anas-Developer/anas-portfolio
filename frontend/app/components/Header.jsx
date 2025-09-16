@@ -21,7 +21,7 @@ function Header() {
         {/* Logo */}
         <div className="font-extrabold text-white text-2xl pl-2 w-full">
           <span className="text-white">Anas </span>
-          <span className="text-green-300">Developer</span>
+          <span className="text-green-400">Developer</span>
         </div>
 
         {/* Desktop Navigation */}

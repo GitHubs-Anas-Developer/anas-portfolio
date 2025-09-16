@@ -32,7 +32,7 @@ function Projects() {
     ];
 
     return (
-        <div className='bg-slate-900 py-10'>
+        <div className='bg-slate-900  px-6 py-20'>
             {/* Heading */}
             <div className="text-center max-w-2xl mx-auto px-4">
                 <span className="text-white text-4xl font-extrabold">Recent </span>
