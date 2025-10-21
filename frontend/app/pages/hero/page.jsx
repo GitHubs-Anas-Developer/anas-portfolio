@@ -7,9 +7,9 @@ import gsap from "gsap";
 
 const codeLines = [
 
-  ' const developer = {',
+  ' cconst developer = {',
   '  name: "Anas",',
-  '  role: "Senior Full Stack MERN Developer",',
+  '  role: " Full Stack MERN Developer",',
   '  skills: {',
   '    frontend: [',
   '      "React", "Next.js", "Redux", "TypeScript", "TailwindCSS", "Material-UI",',
@@ -19,12 +19,12 @@ const codeLines = [
   '      "Node.js", "Express.js", "REST APIs", "GraphQL", "WebSocket", "JWT Auth",',
   '      "Payment Gateway Integration',
   '    ],',
-  '    database: ["MongoDB", "Firebase", "MySQL", "PostgreSQL", "Redis"],',
+  '    database: ["MongoDB", "Firebase", "PostgreSQL", "Redis"],',
   '    devops: ["Docker", "Kubernetes", "CI/CD", "Vercel", "Netlify", "AWS", "GCP"],',
   '    testing: ["Jest", "React Testing Library", "Cypress", "Mocha", "Chai"],',
-  '    tools: ["Git", "GitHub", "VS Code", "Postman", "Figma", "Swagger"],',
+  '    tools: ["Git", "GitHub", "VS Code", "Postman", "Figma",],',
   '    others: [',
-  '      "WebRTC", "Real-time Chat Apps", "E-commerce Admin Panels",',
+  '      "WebRTC", "Real-time Chat Apps',
   '      "Expense Tracker Apps", "Analytics Dashboards", "SEO Optimization",',
   '      "Performance Tuning", "Scalable Architecture", "Microservices",',
   '    ],',
